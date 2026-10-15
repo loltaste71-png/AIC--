@@ -6,12 +6,22 @@
 
 | 路径 | 说明 |
 |---|---|
-| `data/rank_snapshots.json` | 初赛榜单整点快照（275 帧，2026-09-06 16:00 → 2026-09-20 12:00） |
+| `data/rank_snapshots.json` | 初赛榜单整点快照（275 帧，2026-09-06 16:00 → 2026-09-20 12:00，**采集不完整，仅存档不作分析展示**） |
 | `data/rank_snapshots_fs.json` | 复赛榜单整点快照（483 帧，2026-09-21 20:00 → 2026-10-11 22:00） |
 | `analysis/index.html` | 数据分析报告（ECharts 可视化，双击即可在浏览器打开） |
 | `analysis/cheat_analysis.html` | 可疑队伍画像分析（暴涨 / 同分 / 综合可疑度，统计模式识别） |
 | `analysis/images/` | 分析报告导出的图表 PNG |
 | `static/echarts.min.js` | 报告依赖的 ECharts 库 |
+
+## 交互式分析报告（建议用浏览器打开，可直接交互）
+
+| 报告 | 内容 |
+|---|---|
+| [analysis/index.html](analysis/index.html) | 基础分析：队伍总数、分数分布、单帧暴涨、获奖线演化、迭代活跃度、排名波动等 12 图 |
+| [analysis/cheat_analysis.html](analysis/cheat_analysis.html) | 可疑队伍画像：暴涨 Top30、同分簇、综合可疑度、初赛↔复赛反差、卡线、轨迹 6 图 |
+| [analysis/drop_analysis.html](analysis/drop_analysis.html) | 分数倒跌：榜单"取最高分"机制下分数单调性检验，14 起倒跌事件全明细 |
+
+> 提示：GitHub 在线预览 HTML 时，可先打开 `analysis/` 目录再点文件；本地使用请 `git clone` 后双击文件打开。
 
 ## 数据口径
 
