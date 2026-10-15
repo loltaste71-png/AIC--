@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2026AIC 复赛作弊队伍下界估计</title>
+<script src="../static/echarts.min.js"></script>
+<style>
+body{margin:0;background:#0b1526;color:#e8f4ff;font-family:'Segoe UI',Microsoft YaHei,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:24px}
+h1{font-size:24px;margin:0 0 4px}.desc{color:#5b7b9a;font-size:13px;margin:12px 0 16px;line-height:1.8}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+.kpi{background:#13233d;border:1px solid #1e3a5f;border-radius:10px;padding:12px 18px}
+.kpi .v{font-size:22px;font-weight:700;color:#ffd97a}.kpi .l{font-size:12px;color:#5b7b9a;margin-top:2px}
+.card{background:#13233d;border:1px solid #1e3a5f;border-radius:12px;padding:12px;margin-bottom:16px}
+.card h3{font-size:14px;margin:0 0 6px}.chart{width:100%;height:380px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+th,td{padding:6px 8px;border-bottom:1px solid #1e3a5f;text-align:left;white-space:nowrap}
+th{color:#7fd4ff}.bad{color:#ff6b6b}
+.foot{color:#5b7b9a;font-size:12px;margin-top:20px;line-height:1.8}
+</style></head><body><div class="wrap">
+<h1>2026AIC 复赛榜单 · 作弊队伍数量下界估计</h1>
+<div class="desc">基于 483 帧整点快照，用「正常迭代无法自圆其说」的强行为信号估计作弊队伍数量的<b>保守下界</b>。以下为统计推断，供复核参考，不构成对任何队伍的定性结论；实际作弊数可能更高，也可能含个别误伤。</div>
+<div class="kpis">
+<div class="kpi"><div class="v">35</div><div class="l">硬证据下界（行为无法正常解释）</div></div>
+<div class="kpi"><div class="v">46</div><div class="l">+ 分数被官方倒跌的队伍</div></div>
+<div class="kpi"><div class="v">51</div><div class="l">初赛口径放宽至 ≤30 分后</div></div>
+<div class="kpi"><div class="v">71 / 13</div><div class="l">最宽（含马甲账号 / 马甲主体）</div></div>
+</div>
+
+<div class="card"><h3>五类异常信号命中队伍数</h3><div class="chart" id="c1"></div></div>
+<div class="card"><h3>下界分层估计</h3><div class="chart" id="c2"></div></div>
+
+<h3 style="margin-top:24px">硬证据名单（35 队 = 单帧暴涨≥20 ∪ 初赛裸奔→复赛高分）</h3>
+<table><thead><tr><th>队名</th><th>编号</th><th>复赛末分</th><th>末排名</th><th>初赛分</th><th>命中信号</th></tr></thead><tbody><tr><td>云程</td><td>AIC-2026-12983253</td><td>59.178</td><td>20</td><td>9.338</td><td>初赛裸奔→复赛高分</td></tr><tr><td>AC</td><td>AIC-2026-13092655</td><td>59.865</td><td>7</td><td>65.866</td><td>单帧暴涨≥20</td></tr><tr><td>龙之队</td><td>AIC-2026-13309210</td><td>57.577</td><td>103</td><td>8.988</td><td>初赛裸奔→复赛高分</td></tr><tr><td>义眼盯真</td><td>AIC-2026-17771969</td><td>51.632</td><td>385</td><td>52.057</td><td>单帧暴涨≥20</td></tr><tr><td>柏珩</td><td>AIC-2026-17828910</td><td>59.619</td><td>11</td><td>9.377</td><td>初赛裸奔→复赛高分</td></tr><tr><td>蓄势待发</td><td>AIC-2026-22764850</td><td>57.179</td><td>151</td><td>—</td><td>单帧暴涨≥20</td></tr><tr><td>冲冲冲</td><td>AIC-2026-26838837</td><td>57.156</td><td>156</td><td>8.479</td><td>初赛裸奔→复赛高分</td></tr><tr><td>算法青芒</td><td>AIC-2026-30821130</td><td>57.367</td><td>128</td><td>9.868</td><td>初赛裸奔→复赛高分</td></tr><tr><td>慧眼</td><td>AIC-2026-31567721</td><td>58.731</td><td>37</td><td>10.093</td><td>初赛裸奔→复赛高分</td></tr><tr><td>“格物智行”队</td><td>AIC-2026-33509588</td><td>57.615</td><td>99</td><td>9.635</td><td>初赛裸奔→复赛高分</td></tr><tr><td>城视安防队</td><td>AIC-2026-35133987</td><td>57.880</td><td>84</td><td>8.799</td><td>初赛裸奔→复赛高分</td></tr><tr><td>凌云队</td><td>AIC-2026-38897968</td><td>47.758</td><td>474</td><td>35.628</td><td>单帧暴涨≥20</td></tr><tr><td>无言以队</td><td>AIC-2026-41923736</td><td>54.990</td><td>275</td><td>44.447</td><td>单帧暴涨≥20</td></tr><tr><td>源来如此队</td><td>AIC-2026-45497657</td><td>57.623</td><td>98</td><td>10.479</td><td>初赛裸奔→复赛高分</td></tr><tr><td>飞起来</td><td>AIC-2026-48210879</td><td>58.924</td><td>27</td><td>10.617</td><td>初赛裸奔→复赛高分</td></tr><tr><td>湖大智队</td><td>AIC-2026-50827823</td><td>58.573</td><td>45</td><td>9.294</td><td>初赛裸奔→复赛高分</td></tr><tr><td>query</td><td>AIC-2026-54899851</td><td>43.169</td><td>529</td><td>14.216</td><td>单帧暴涨≥20</td></tr><tr><td>墨鱼小队</td><td>AIC-2026-57515596</td><td>58.180</td><td>68</td><td>8.368</td><td>初赛裸奔→复赛高分</td></tr><tr><td>来打洲一起组队</td><td>AIC-2026-58661140</td><td>58.055</td><td>73</td><td>8.767</td><td>初赛裸奔→复赛高分</td></tr><tr><td>新视界队</td><td>AIC-2026-63175732</td><td>58.783</td><td>33</td><td>9.303</td><td>初赛裸奔→复赛高分</td></tr><tr><td>元溯队</td><td>AIC-2026-66511945</td><td>57.578</td><td>102</td><td>9.616</td><td>初赛裸奔→复赛高分</td></tr><tr><td>电元求索</td><td>AIC-2026-70344621</td><td>57.155</td><td>157</td><td>9.328</td><td>初赛裸奔→复赛高分</td></tr><tr><td>目标检测小分队</td><td>AIC-2026-72109082</td><td>57.060</td><td>166</td><td>54.258</td><td>单帧暴涨≥20</td></tr><tr><td>棱镜AI</td><td>AIC-2026-79928064</td><td>42.359</td><td>535</td><td>47.373</td><td>单帧暴涨≥20</td></tr><tr><td>星途智算</td><td>AIC-2026-82895396</td><td>58.828</td><td>32</td><td>9.247</td><td>初赛裸奔→复赛高分</td></tr><tr><td>城光拾影</td><td>AIC-2026-87281565</td><td>57.369</td><td>127</td><td>10.119</td><td>初赛裸奔→复赛高分</td></tr><tr><td>隆榄队</td><td>AIC-2026-87878537</td><td>50.877</td><td>409</td><td>45.472</td><td>单帧暴涨≥20</td></tr><tr><td>公元前</td><td>AIC-2026-90328213</td><td>57.182</td><td>149</td><td>8.509</td><td>初赛裸奔→复赛高分</td></tr><tr><td>算法小精灵队</td><td>AIC-2026-91184666</td><td>58.752</td><td>35</td><td>9.301</td><td>初赛裸奔→复赛高分</td></tr><tr><td>星耀三高端局</td><td>AIC-2026-91244752</td><td>58.194</td><td>66</td><td>7.967</td><td>初赛裸奔→复赛高分</td></tr><tr><td>宸算者</td><td>AIC-2026-91260521</td><td>58.755</td><td>34</td><td>8.972</td><td>初赛裸奔→复赛高分</td></tr><tr><td>shiyi</td><td>AIC-2026-93480424</td><td>56.314</td><td>217</td><td>52.789</td><td>单帧暴涨≥20</td></tr><tr><td>人工智能冲冲冲</td><td>AIC-2026-97298149</td><td>57.628</td><td>96</td><td>10.130</td><td>初赛裸奔→复赛高分</td></tr><tr><td>焦糖味银鹭花生牛奶</td><td>AIC-2026-97390338</td><td>57.380</td><td>124</td><td>58.467</td><td>单帧暴涨≥20</td></tr><tr><td>AILab AIC</td><td>AIC-2026-98473653</td><td>50.207</td><td>425</td><td>55.323</td><td>单帧暴涨≥20</td></tr></tbody></table>
+
+<div class="foot">
+<b>信号定义：</b>① 单帧暴涨≥20 分（12 队，一帧跳 20~59 分）；② 初赛 ≤12 分（基本未交有效成绩）→ 复赛 ≥57 分（直接进获奖区，23 队）；两类零重叠。③ 分数倒跌跌幅≥0.5（11 队，多为官方声明后被动分）；④ 同名异号（13 组 27 账号）；⑤ 一次性提交高分（1 队）。<br>
+<b>口径：</b>"至少 35" 取两类硬行为信号的去重并集——在"排行榜取最高分、分数单调不降"的机制下，这两类行为无法用正常模型迭代解释。数据来源：赛事官方公开榜单接口整点快照（无需登录）。
+</div>
+</div>
+<script>
+var c1 = echarts.init(document.getElementById('c1'));
+c1.setOption({tooltip:{trigger:'axis',triggerOn:'click',renderMode:'richText',confine:true},grid:{left:130,right:40,top:10,bottom:30,containLabel:true},
+xAxis:{type:'value',minInterval:1},yAxis:{type:'category',data:['同名异号(账号数)','初赛裸奔→复赛高分','单帧暴涨≥20分','分数倒跌(跌幅≥0.5)','一次性提交高分'].reverse()},
+series:[{type:'bar',data:[27,23,12,11,1].reverse(),barWidth:'55%',itemStyle:{color:function(p){return p.dataIndex===4?'#ff6b6b':'#7fd4ff';}},label:{show:true,position:'right',fontSize:11}}]});
+var c2 = echarts.init(document.getElementById('c2'));
+c2.setOption({tooltip:{trigger:'item',triggerOn:'click',renderMode:'richText',confine:true},grid:{left:60,right:40,top:10,bottom:30,containLabel:true},
+xAxis:{type:'value',minInterval:5},yAxis:{type:'category',data:['最宽(含马甲账号)','+ 官方倒跌(初赛≤30)','+ 官方倒跌','硬证据下界','硬证据(不含倒跌)'].reverse()},
+series:[{type:'bar',data:[71,51,46,40,35].reverse(),barWidth:'55%',itemStyle:{color:function(p){return p.dataIndex===4?'#ff6b6b':'#ffd97a';}},label:{show:true,position:'right',fontSize:11}}]});
+window.addEventListener('resize',function(){c1.resize();c2.resize();});
+</script>
+</body></html>
