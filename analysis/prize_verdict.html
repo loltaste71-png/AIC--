@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>复赛公示交叉分析：被斩杀队伍与漏网预测</title>
+<script src="../static/echarts.min.js"></script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b1526; color:#cfe3f5; font-family:"Microsoft YaHei",sans-serif; padding:24px; line-height:1.7; }
+  h1 { color:#7fd4ff; font-size:22px; margin-bottom:8px; }
+  h2 { color:#ffd97a; font-size:17px; margin:28px 0 12px; border-left:3px solid #ffd97a; padding-left:10px; }
+  .sub { color:#8aa4c0; font-size:13px; margin-bottom:20px; }
+  .card { background:#13223d; border-radius:8px; padding:16px 20px; margin-bottom:16px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; margin:8px 0; }
+  th { background:#1a2f52; color:#7fd4ff; padding:8px 10px; text-align:left; }
+  td { padding:7px 10px; border-bottom:1px solid #1e3358; }
+  tr:hover td { background:#16294a; }
+  .red { color:#ff6b6b; font-weight:bold; }
+  .gold { color:#ffd97a; font-weight:bold; }
+  .green { color:#6bffb8; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:10px; font-size:11px; margin-right:4px; }
+  .tag-a { background:#3a1518; color:#ff6b6b; }
+  .tag-b { background:#3a2a15; color:#ffd97a; }
+  .tag-suspect { background:#1a2f52; color:#7fd4ff; }
+  #chart { width:100%; height:380px; }
+  #chart2 { width:100%; height:340px; }
+  .note { color:#8aa4c0; font-size:12px; margin-top:8px; }
+  .disclaimer { background:#1a1a2e; border:1px solid #3a2a4a; border-radius:6px; padding:12px 16px; margin-top:24px; font-size:12px; color:#b0a0c0; }
+  ul { margin-left:20px; margin-top:6px; }
+  li { margin:4px 0; }
+</style>
+</head>
+<body>
+
+<h1>复赛公示交叉分析：哪些队被官方斩杀，哪些可能漏网</h1>
+<div class="sub">数据口径：官方公示名单（553队）× 本地483帧监控快照（09-21 20:00 → 10-11 22:00）｜ 分析时间：2026-10</div>
+
+<div class="card">
+<h2 style="margin-top:0;">一、官方档位总览</h2>
+<p>赛题二"面向城市场景的视觉多模态目标检测"共553队，按最终排名百分比切档：</p>
+<div id="chart"></div>
+<p class="note">晋级国赛共220队（省一82 + 省二138），省三165队不晋级，未获奖168队。</p>
+</div>
+
+<div class="card">
+<h2>二、被官方斩杀的20队</h2>
+<p>定义：冻结榜分数落在省一/二/三档内（前388名），但公示名单中<span class="red">未获奖</span>——即"按分数该拿奖却被打掉"。</p>
+
+<h3 style="color:#ff6b6b; margin:14px 0 8px;">A类：高分凭空冒头（9队，58.7~61分）</h3>
+<table>
+<tr><th>冻结名次</th><th>队名</th><th>榜单分</th><th>初赛情况</th><th>画像</th></tr>
+<tr><td>1</td><td>扬帆队</td><td>61.067</td><td>缺考</td><td>初赛没参加，复赛直接第1</td></tr>
+<tr><td>2</td><td>算力先锋</td><td>60.558</td><td>缺考</td><td>同上</td></tr>
+<tr><td>4</td><td>FK</td><td>60.383</td><td>初赛第10</td><td>初赛真强，复测翻车</td></tr>
+<tr><td>7</td><td>AC</td><td>59.865</td><td>初赛第2</td><td>同上，且命中"单帧暴涨20分"</td></tr>
+<tr><td>8</td><td>ini</td><td>59.859</td><td>初赛第1</td><td>同上</td></tr>
+<tr><td>15</td><td>定风波队</td><td>59.399</td><td>缺考</td><td>缺考冒高分</td></tr>
+<tr><td>16</td><td>维度解耦</td><td>59.308</td><td>缺考</td><td>同上</td></tr>
+<tr><td>17</td><td>扬帆远航</td><td>59.303</td><td>缺考</td><td>同上</td></tr>
+<tr><td>37</td><td>慧眼</td><td>58.731</td><td>初赛10分/532名</td><td>0次提交变更，一步到位</td></tr>
+</table>
+
+<h3 style="color:#ffd97a; margin:18px 0 8px;">B类：卡线同分簇（11队，56.3~57.4分）</h3>
+<table>
+<tr><th>同分簇</th><th>队名</th><th>初赛名次</th><th>结果</th></tr>
+<tr><td rowspan="3">57.321</td><td>恒视科创队</td><td>109</td><td class="red">未获奖</td></tr>
+<tr><td>不知道对不队</td><td>300</td><td class="red">未获奖</td></tr>
+<tr><td>刀枪炮</td><td>265</td><td class="red">未获奖</td></tr>
+<tr><td rowspan="2">57.396</td><td>火爆奶龙队</td><td>114</td><td class="red">未获奖</td></tr>
+<tr><td>对的对的</td><td>238</td><td class="red">未获奖</td></tr>
+<tr><td rowspan="2">57.285</td><td>幸运星队</td><td>41</td><td class="red">未获奖</td></tr>
+<tr><td>别跟我们作队</td><td>160</td><td class="red">未获奖</td></tr>
+<tr><td rowspan="2">56.363</td><td>知行合一</td><td>97</td><td class="red">未获奖</td></tr>
+<tr><td>城视融合</td><td>407</td><td class="red">未获奖</td></tr>
+<tr><td>57.043</td><td>我说的都队</td><td>248</td><td class="red">未获奖（独分）</td></tr>
+<tr><td>55.755</td><td>一往无前队</td><td>107</td><td class="red">未获奖（独分）</td></tr>
+</table>
+<p class="note">4个同分簇共9队<span class="red">全灭</span>，一个活口都没有——像凑钱买了同一套"刚好够省二"的方案。</p>
+</div>
+
+<div class="card">
+<h2>三、作弊规律：哪些特征真有区分度</h2>
+<div id="chart2"></div>
+<ul>
+<li><span class="gold">同分簇</span>：斩杀集45% vs 获奖队7.3%（<span class="red">6.2倍</span>）——但关键不是"撞分"，而是簇内<span class="gold">全是初赛中游弱队</span>抱团同分。</li>
+<li><span class="gold">初赛缺考</span>：斩杀集25% vs 获奖队3.1%（<span class="red">8倍</span>）——初赛没参加，复赛凭空冒59+。</li>
+<li>初赛弱复赛强、提交次数少：在获奖队里命中率也很高（40%+），<span class="green">不是作弊证据</span>（省一里一堆这样的，官方复核过了）。</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>四、漏网预测：哪些队画像和被斩杀队最像</h2>
+<p>在已获奖队伍中，按"和被斩杀队的相似度"排序：</p>
+
+<h3 style="color:#ff6b6b; margin:12px 0 8px;">第一嫌疑（最像漏网）</h3>
+<table>
+<tr><th>队名</th><th>分数</th><th>等级</th><th>同分伙伴</th><th>画像对比</th></tr>
+<tr><td class="red">刷漆队</td><td>58.721</td><td>省一</td><td>从容应队（初赛477名）</td><td rowspan="2">两个初赛477/517名极弱队，复赛同分58.721拿省一。对比被斩杀的慧眼（初赛532名、58.731、未获奖），分数只差0.01，画像几乎一样。</td></tr>
+<tr><td class="red">从容应队</td><td>58.721</td><td>省一</td><td>刷漆队（初赛517名）</td></tr>
+</table>
+
+<h3 style="color:#ffd97a; margin:16px 0 8px;">第二嫌疑</h3>
+<table>
+<tr><th>队名</th><th>分数</th><th>等级</th><th>同分伙伴</th><th>画像对比</th></tr>
+<tr><td class="gold">厚积薄发</td><td>57.380</td><td>省二</td><td>焦糖味银鹭花生牛奶（初赛168名）</td><td rowspan="2">两个初赛170名左右弱队同分57.380。对比被斩杀的57.396簇（火爆奶龙114名+对的对的238名，全灭），初赛名次段、分数段、卡省二线位置几乎复刻。</td></tr>
+<tr><td class="gold">焦糖味银鹭花生牛奶</td><td>57.380</td><td>省二</td><td>厚积薄发（初赛172名）</td></tr>
+</table>
+
+<h3 style="color:#7fd4ff; margin:16px 0 8px;">第三嫌疑</h3>
+<table>
+<tr><th>队名</th><th>分数</th><th>等级</th><th>同分伙伴</th><th>画像对比</th></tr>
+<tr><td>汉津智眸</td><td>57.004</td><td>省二</td><td>清风一咪（初赛162名）</td><td rowspan="2">两个弱队同分57.004卡在省二线，和被斩杀簇类似。</td></tr>
+<tr><td>清风一咪</td><td>57.004</td><td>省二</td><td>汉津智眸（初赛387名）</td></tr>
+</table>
+
+<h3 style="color:#8aa4c0; margin:16px 0 8px;">第四嫌疑：初赛缺考独分队</h3>
+<table>
+<tr><th>队名</th><th>分数</th><th>等级</th><th>特征</th></tr>
+<tr><td>雄鹰队</td><td>57.538</td><td>省二</td><td>初赛缺考，复赛一步到省二线</td></tr>
+<tr><td>老天保佑队</td><td>57.525</td><td>省二</td><td>同上</td></tr>
+<tr><td>矩算知行</td><td>57.057</td><td>省二</td><td>同上</td></tr>
+<tr><td>智链细米队</td><td>56.487</td><td>省二</td><td>同上</td></tr>
+</table>
+<p class="note">这4队和被斩杀A类"缺考买高分"画像一致，只是分数低一截（像买了便宜方案）。</p>
+</div>
+
+<div class="disclaimer">
+<b>免责说明：</b>本报告基于公开榜单快照与官方公示名单的统计交叉，"被斩杀"指冻结榜分数本该获奖但公示未获奖，原因可能包括作弊、复测不通过、弃权、违规取消资格等，不做法律定性。"漏网预测"是统计画像相似度排序，不构成作弊指控。官方公示结果为最终裁定。
+</div>
+
+<script>
+// 图1：档位分布
+var c1 = echarts.init(document.getElementById('chart'));
+c1.setOption({
+  tooltip: { trigger:'axis', triggerOn:'click', renderMode:'richText', confine:true },
+  grid: { left:60, right:30, top:40, bottom:40, containLabel:true },
+  xAxis: { type:'category', data:['省一(前15%)','省二(15-40%)','省三(40-70%)','未获奖(后30%)'],
+           axisLabel:{color:'#8aa4c0'} },
+  yAxis: { type:'value', axisLabel:{color:'#8aa4c0'} },
+  series: [{
+    type:'bar', barWidth:50,
+    data:[
+      {value:82, itemStyle:{color:'#6bffb8'}},
+      {value:138, itemStyle:{color:'#7fd4ff'}},
+      {value:165, itemStyle:{color:'#ffd97a'}},
+      {value:168, itemStyle:{color:'#ff6b6b'}}
+    ],
+    label:{show:true, position:'top', color:'#cfe3f5'}
+  }]
+});
+
+// 图2：特征命中率对比
+var c2 = echarts.init(document.getElementById('chart2'));
+c2.setOption({
+  tooltip: { trigger:'axis', triggerOn:'click', renderMode:'richText', confine:true },
+  legend: { data:['被斩杀20队','获奖385队'], textStyle:{color:'#cfe3f5'}, bottom:0 },
+  grid: { left:60, right:30, top:40, bottom:50, containLabel:true },
+  xAxis: { type:'category', data:['同分簇','初赛缺考','初赛弱复赛强','提交≤2次'],
+           axisLabel:{color:'#8aa4c0'} },
+  yAxis: { type:'value', max:100, axisLabel:{color:'#8aa4c0', formatter:'{value}%'} },
+  series: [
+    { name:'被斩杀20队', type:'bar', data:[45,25,35,45], itemStyle:{color:'#ff6b6b'}, label:{show:true,position:'top',color:'#ff6b6b',formatter:'{c}%'} },
+    { name:'获奖385队', type:'bar', data:[7.3,3.1,19.2,40.5], itemStyle:{color:'#7fd4ff'}, label:{show:true,position:'top',color:'#7fd4ff',formatter:'{c}%'} }
+  ]
+});
+</script>
+</body>
+</html>
