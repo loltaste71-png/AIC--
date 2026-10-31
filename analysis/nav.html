@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>2026AIC 赛题二 · 榜单分析导航</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f1420;color:#e6e9f0;font-family:"Microsoft YaHei",-apple-system,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.wrap{max-width:900px;width:100%}
+h1{font-size:28px;margin-bottom:8px;text-align:center}
+.sub{color:#8a93a6;font-size:14px;text-align:center;margin-bottom:36px;line-height:1.7}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{background:#1a2133;border:1px solid #2a3350;border-radius:14px;padding:22px;text-decoration:none;color:inherit;transition:border-color 0.2s,transform 0.2s;display:block}
+.card:hover{border-color:#4da3ff;transform:translateY(-2px)}
+.card .tag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:20px;margin-bottom:10px;font-weight:600}
+.tag-hot{background:rgba(255,184,107,0.15);color:#ffb86b}
+.tag-new{background:rgba(123,216,143,0.15);color:#7bd88f}
+.tag-classic{background:rgba(77,163,255,0.15);color:#4da3ff}
+.card h3{font-size:16px;margin-bottom:6px;color:#fff}
+.card p{font-size:12px;color:#8a93a6;line-height:1.6}
+.section-title{font-size:14px;color:#8a93a6;margin:24px 0 12px;text-transform:uppercase;letter-spacing:1px}
+.foot{text-align:center;font-size:11px;color:#5a6378;margin-top:30px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>2026AIC 赛题二 · 榜单分析</h1>
+<div class="sub">面向城市场景的视觉多模态目标检测 · 排行榜整点快照公开数据<br>数据来自官方公开接口，异常判定为统计模式识别，不构成作弊认定</div>
+
+<div class="section-title">🔥 当前阶段 · 国赛（半决赛）</div>
+<div class="grid">
+<a class="card" href="st2_national.html">
+<span class="tag tag-hot">国赛总览</span>
+<h3>国赛榜单分析</h3>
+<p>220队在榜增长、分数分布、国一/二/三线演化、名次-分数曲线、跳分Top20、复赛顿悟队9支</p>
+</a>
+<a class="card" href="st2_suspects.html">
+<span class="tag tag-new">新</span>
+<h3>国赛可疑全记录</h3>
+<p>L1高度怀疑35队 + L2中度怀疑64队 + L3轻度关注41队，点击查看每队完整提交轨迹</p>
+</a>
+<a class="card" href="cross.html">
+<span class="tag tag-new">新</span>
+<h3>复赛×国赛交叉</h3>
+<p>复赛L1的19队在国赛去向：13队弃赛，6队全在中下游。异常队国赛拿不出真东西</p>
+</a>
+</div>
+
+<div class="section-title">📦 复赛阶段（已结束）</div>
+<div class="grid">
+<a class="card" href="index.html">
+<span class="tag tag-classic">基础</span>
+<h3>复赛数据总览</h3>
+<p>483帧快照、554队、分数分布、单帧暴涨、获奖线演化、迭代活跃度等12图</p>
+</a>
+<a class="card" href="fs_suspects.html">
+<span class="tag tag-hot">重点</span>
+<h3>复赛可疑全记录</h3>
+<p>L1 19队 + L2 63队 + L3 185队，共267队，点击查看每队完整提交轨迹</p>
+</a>
+<a class="card" href="cheat_analysis.html">
+<span class="tag tag-classic">画像</span>
+<h3>可疑队伍画像</h3>
+<p>暴涨Top30、同分簇、综合可疑度、初赛↔复赛反差、卡线分析</p>
+</a>
+<a class="card" href="drop_analysis.html">
+<span class="tag tag-classic">倒跌</span>
+<h3>分数倒跌分析</h3>
+<p>榜单"取最高分"机制下的分数单调性检验，14起倒跌事件全明细</p>
+</a>
+<a class="card" href="lowerbound.html">
+<span class="tag tag-classic">下界</span>
+<h3>作弊下界估计</h3>
+<p>五类异常信号分层统计：35/46/51/71队，从保守到最宽</p>
+</a>
+<a class="card" href="prize_verdict.html">
+<span class="tag tag-hot">公示</span>
+<h3>公示交叉分析</h3>
+<p>被官方斩杀20队完整名单、作弊规律特征命中率、漏网预测</p>
+</a>
+</div>
+
+<div class="foot">
+MIT License · 数据采集自官方公开榜单接口 · 最后更新 2026-10-31<br>
+本页面所有内容仅供技术研究参考，不构成对任何参赛队伍的定性结论
+</div>
+</div>
+</body>
+</html>

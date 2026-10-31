@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>复赛×国赛可疑交叉分析</title>
+<script src="../static/echarts.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f1420;color:#e6e9f0;font-family:"Microsoft YaHei",-apple-system,sans-serif;padding:24px;max-width:1200px;margin:0 auto}
+h1{font-size:22px;margin-bottom:6px}
+.sub{color:#8a93a6;font-size:13px;margin-bottom:16px;line-height:1.7}
+.nav{background:#1a2133;border:1px solid #2a3350;border-radius:10px;padding:10px 14px;margin-bottom:16px;font-size:13px}
+.nav a{color:#4da3ff;margin-right:14px;text-decoration:none}
+.card{background:#1a2133;border:1px solid #2a3350;border-radius:12px;padding:14px;margin-bottom:14px}
+.card h2{font-size:15px;margin-bottom:8px;color:#c9d3e8}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+th,td{padding:6px 8px;text-align:left;border-bottom:1px solid #2a3350}
+th{color:#8a93a6;font-weight:500}
+.abandoned{color:#ff6b6b}
+.ok{color:#7bd88f}
+.chart{width:100%;height:350px}
+.conclusion{background:#121826;border-left:3px solid #ffb86b;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:13px;line-height:1.8}
+</style>
+</head>
+<body>
+<h1>复赛 × 国赛 可疑队伍交叉分析</h1>
+<div class="sub">复赛 L1 高度怀疑 19 队，在国赛的去向追踪。</div>
+<div class="nav">
+<b style="color:#c9d3e8">导航：</b>
+<a href="index.html">首页</a>
+<a href="st2_national.html">国赛总览</a>
+<a href="st2_suspects.html">国赛可疑全记录</a>
+<a href="fs_suspects.html">复赛可疑全记录</a>
+</div>
+
+<div class="conclusion">
+<b>核心结论：</b>复赛 L1 的 19 队中，<span class="abandoned">13 队（68%）国赛直接弃赛</span>，<span class="ok">仅 6 队提交</span>且全部在国赛中下游（#104 ~ #217）。<br>
+这说明：复赛靠异常暴涨晋级的队伍，国赛根本拿不出真东西——要么不敢交，要么交了也泯然众人。
+</div>
+
+<div class="card"><h2>复赛L1队伍 国赛去向</h2>
+<table id="tbl">
+<thead><tr><th>队名</th><th>复赛名次</th><th>复赛分数</th><th>复赛最大跳分</th><th>国赛名次</th><th>国赛分数</th><th>状态</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
+<div class="card"><h2>复赛名次 vs 国赛名次（已提交的6队）</h2><div class="chart" id="c1"></div></div>
+
+<script>
+var C = [{"name": "智链细米队", "no": "AIC-2026-70928903", "fs_rank": 200, "fs_score": 56.487, "fs_jump": 13.672, "st2_rank": 104, "st2_score": 55.858, "st2_n": 1}, {"name": "武汉大学yolov和swin transformer的联合分类实践", "no": "AIC-2026-60798245", "fs_rank": 220, "fs_score": 56.277, "fs_jump": 11.81, "st2_rank": 132, "st2_score": 55.364, "st2_n": 5}, {"name": "城市之光", "no": "AIC-2026-94522387", "fs_rank": 113, "fs_score": 57.429, "fs_jump": 20.216, "st2_rank": 146, "st2_score": 55.043, "st2_n": 4}, {"name": "shiyi", "no": "AIC-2026-93480424", "fs_rank": 217, "fs_score": 56.314, "fs_jump": 26.803, "st2_rank": 209, "st2_score": 51.438, "st2_n": 1}, {"name": "目标检测小分队", "no": "AIC-2026-72109082", "fs_rank": 166, "fs_score": 57.06, "fs_jump": 21.049, "st2_rank": 216, "st2_score": 48.585, "st2_n": 2}, {"name": "重生之算法精英队", "no": "AIC-2026-91046938", "fs_rank": 169, "fs_score": 57.045, "fs_jump": 12.11, "st2_rank": 217, "st2_score": 47.676, "st2_n": 1}, {"name": "AILab AIC", "no": "AIC-2026-98473653", "fs_rank": 425, "fs_score": 50.207, "fs_jump": 30.991, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "query", "no": "AIC-2026-54899851", "fs_rank": 529, "fs_score": 43.169, "fs_jump": 25.905, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "隆榄队", "no": "AIC-2026-87878537", "fs_rank": 409, "fs_score": 50.877, "fs_jump": 21.038, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "棱镜AI", "no": "AIC-2026-79928064", "fs_rank": 535, "fs_score": 42.359, "fs_jump": 20.029, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "重生之算法大师", "no": "AIC-2026-46415846", "fs_rank": 480, "fs_score": 47.379, "fs_jump": 18.853, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "立方体", "no": "AIC-2026-82151948", "fs_rank": 390, "fs_score": 51.486, "fs_jump": 18.157, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "越想越队", "no": "AIC-2026-17047564", "fs_rank": 467, "fs_score": 48.197, "fs_jump": 16.725, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "格物", "no": "AIC-2026-99020912", "fs_rank": 382, "fs_score": 51.76, "fs_jump": 13.816, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "PixelHunt", "no": "AIC-2026-34149584", "fs_rank": 475, "fs_score": 47.687, "fs_jump": 12.19, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "喵喵队摸不了大鱼", "no": "AIC-2026-47499041", "fs_rank": 527, "fs_score": 43.288, "fs_jump": 11.321, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "ycx", "no": "AIC-2026-53929908", "fs_rank": 533, "fs_score": 42.478, "fs_jump": 10.691, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "顺风顺水顺财神", "no": "AIC-2026-22787544", "fs_rank": 250, "fs_score": 55.498, "fs_jump": 10.603, "st2_rank": null, "st2_score": null, "st2_n": 0}, {"name": "只喝热带风味冰红茶", "no": "AIC-2026-90763179", "fs_rank": 358, "fs_score": 52.253, "fs_jump": 10.558, "st2_rank": null, "st2_score": null, "st2_n": 0}];
+var tb = document.querySelector('#tbl tbody');
+var h = '';
+for(var i=0;i<C.length;i++){var x=C[i];
+  var status = x.st2_rank ? '<span class="ok">已提交 #'+x.st2_rank+'</span>' : '<span class="abandoned">弃赛</span>';
+  h+='<tr><td>'+x.name+'</td><td>#'+x.fs_rank+'</td><td>'+x.fs_score+'</td><td>+'+x.fs_jump+'</td><td>'+(x.st2_rank?'#'+x.st2_rank:'-')+'</td><td>'+(x.st2_score||'-')+'</td><td>'+status+'</td></tr>';
+}
+tb.innerHTML = h;
+
+// 散点：复赛名次 vs 国赛名次
+var submitted = C.filter(function(x){return x.st2_rank;});
+echarts.init(document.getElementById('c1')).setOption({
+  tooltip:{trigger:'item',formatter:function(p){return p.data[2];}},
+  grid:{left:50,right:30,top:20,bottom:40,containLabel:true},
+  xAxis:{type:'value',name:'复赛名次',inverse:true,min:1,max:300,axisLabel:{color:'#8a93a6'},splitLine:{lineStyle:{color:'#232c44'}}},
+  yAxis:{type:'value',name:'国赛名次',inverse:true,min:1,max:220,axisLabel:{color:'#8a93a6'},splitLine:{lineStyle:{color:'#232c44'}}},
+  series:[{type:'scatter',symbolSize:10,data:submitted.map(function(x){return [x.fs_rank, x.st2_rank, x.name];}),itemStyle:{color:'#4da3ff'},
+    label:{show:true,formatter:function(p){return p.data[2];},position:'right',color:'#c9d3e8',fontSize:10}}]
+});
+</script>
+</body>
+</html>
