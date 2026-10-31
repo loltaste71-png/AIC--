@@ -1,29 +1,44 @@
 # 2026AIC- 榜单监控数据
 
-这是个人从复赛开始到结束，通过记录每天的复赛成绩排行榜数据整理的数据，不作为比赛成绩评分参考。
+这是个人从复赛到国赛（半决赛），通过记录每天的排行榜整点快照整理的数据，不作为比赛成绩评分参考。
 
-## 仓库内容
-
-| 路径 | 说明 |
-|---|---|
-| `data/rank_snapshots.json` | 初赛榜单整点快照（275 帧，2026-09-06 16:00 → 2026-09-20 12:00）——**已公开存档**；采集不完整（部分时段缺失），仅作存档参考，未单独制作可视化 |
-| `data/rank_snapshots_fs.json` | 复赛榜单整点快照（483 帧，2026-09-21 20:00 → 2026-10-11 22:00） |
-| `data/prize_verdict.json` | 官方公示结果交叉数据（553队：编号/队名/分数/等级/排名，不含成员姓名） |
-| `data/killed_teams.json` | 被官方斩杀20队名单（冻结榜该获奖但公示未获奖） |
-| `analysis/index.html` | 数据分析报告（ECharts 可视化，双击即可在浏览器打开） |
-| `analysis/cheat_analysis.html` | 可疑队伍画像分析（暴涨 / 同分 / 综合可疑度，统计模式识别） |
-| `analysis/images/` | 分析报告导出的图表 PNG |
-| `static/echarts.min.js` | 报告依赖的 ECharts 库 |
-
-## 交互式分析报告（建议用浏览器打开，可直接交互）
+## 🔥 当前阶段：国赛（半决赛）进行中
 
 | 报告 | 内容 |
 |---|---|
-| [analysis/index.html](analysis/index.html) | 基础分析：队伍总数、分数分布、单帧暴涨、获奖线演化、迭代活跃度、排名波动等 12 图 |
-| [analysis/cheat_analysis.html](analysis/cheat_analysis.html) | 可疑队伍画像：暴涨 Top30、同分簇、综合可疑度、初赛↔复赛反差、卡线、轨迹 6 图 |
-| [analysis/drop_analysis.html](analysis/drop_analysis.html) | 分数倒跌：榜单"取最高分"机制下分数单调性检验，14 起倒跌事件全明细 |
-| [analysis/lowerbound.html](analysis/lowerbound.html) | 作弊队伍数量下界估计：五类异常信号 + 分层下界（35/46/51/71 队） |
-| [analysis/prize_verdict.html](analysis/prize_verdict.html) | **公示交叉分析**：被官方斩杀20队画像、作弊规律特征命中率、漏网预测名单 |
+| [**analysis/st2_national.html**](analysis/st2_national.html) | **赛题二国赛分析**：220队在榜增长、分数分布、国一/二/三线演化、名次-分数曲线、跳分Top20、L1高度怀疑35队+L2中度怀疑64队、复赛顿悟队9支 |
+| [analysis/st2_national_异常分析报告.md](analysis/st2_national_异常分析报告.md) | 国赛整体分布+检测方法+关键发现 |
+| [analysis/st2_national_怀疑名单.md](analysis/st2_national_怀疑名单.md) | L1/L2/L3三级完整名单+判定逻辑 |
+| `data/rank_snapshots_bjs_st2.json` | 国赛榜单整点快照（133 帧，2026-10-26 00:00 → 2026-10-31 12:00） |
+
+> 国赛口径：晋级 220 队，国一前 15%（33 名/56.943 分）、国二 15%-40%（88 名/56.160 分）、国三 40%-70%（154 名/54.927 分）。
+
+---
+
+## 📊 复赛阶段（已结束，存档）
+
+### 仓库内容
+
+| 路径 | 说明 |
+|---|---|
+| `data/rank_snapshots.json` | 初赛榜单整点快照（275 帧，2026-09-06 → 2026-09-20） |
+| `data/rank_snapshots_fs.json` | 复赛榜单整点快照（483 帧，2026-09-21 → 2026-10-11） |
+| `data/prize_verdict.json` | 官方公示结果交叉数据（553队） |
+| `data/killed_teams.json` | 被官方斩杀20队名单 |
+| `analysis/index.html` | 复赛数据分析报告（12 图） |
+| `analysis/cheat_analysis.html` | 复赛可疑队伍画像 |
+| `analysis/images/` | 分析报告导出的图表 PNG |
+| `static/echarts.min.js` | ECharts 库 |
+
+### 复赛交互式报告
+
+| 报告 | 内容 |
+|---|---|
+| [analysis/index.html](analysis/index.html) | 基础分析：队伍总数、分数分布、单帧暴涨、获奖线演化、迭代活跃度、排名波动 |
+| [analysis/cheat_analysis.html](analysis/cheat_analysis.html) | 可疑队伍画像：暴涨 Top30、同分簇、综合可疑度、初赛↔复赛反差 |
+| [analysis/drop_analysis.html](analysis/drop_analysis.html) | 分数倒跌：14 起倒跌事件全明细 |
+| [analysis/lowerbound.html](analysis/lowerbound.html) | 作弊下界估计：分层下界（35/46/51/71 队） |
+| [analysis/prize_verdict.html](analysis/prize_verdict.html) | 公示交叉分析：被斩杀20队画像、漏网预测 |
 
 > 提示：GitHub 在线预览 HTML 时，可先打开 `analysis/` 目录再点文件；本地使用请 `git clone` 后双击文件打开。
 
