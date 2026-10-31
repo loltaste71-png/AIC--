@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>2026AIC赛题二 国赛榜单分析（开源版）</title>
-<script src="../static/echarts.min.js"></script>
+<script src="../static/echarts.min.js">
+// tbl3 顿悟队
+var INSIGHT = [{"name": "焦糖味银鹭花生牛奶", "no": "AIC-2026-97390338", "early_rank": 409, "early_score": 45.281, "fs_rank": 124, "fs_score": 57.38, "score_jump": 12.099, "jump_ts": "09/26 08:00", "jump_size": 43.648, "nat_rank": 117, "nat_score": 55.661}, {"name": "对的对的", "no": "AIC-2026-50650446", "early_rank": 305, "early_score": 50.657, "fs_rank": 119, "fs_score": 57.396, "score_jump": 6.739, "jump_ts": "10/04 23:00", "jump_size": 6.739, "nat_rank": null, "nat_score": null}, {"name": "Sandwich", "no": "AIC-2026-66889524", "early_rank": 128, "early_score": 51.772, "fs_rank": 81, "fs_score": 57.968, "score_jump": 6.196, "jump_ts": "10/04 00:00", "jump_size": 5.731, "nat_rank": 207, "nat_score": 51.65}, {"name": "旺旺队", "no": "AIC-2026-50878539", "early_rank": 228, "early_score": 51.422, "fs_rank": 116, "fs_score": 57.402, "score_jump": 5.98, "jump_ts": "10/05 15:00", "jump_size": 5.98, "nat_rank": 176, "nat_score": 54.27}, {"name": "刀枪炮", "no": "AIC-2026-76610325", "early_rank": 323, "early_score": 51.588, "fs_rank": 133, "fs_score": 57.321, "score_jump": 5.733, "jump_ts": "10/05 10:00", "jump_size": 5.647, "nat_rank": null, "nat_score": null}, {"name": "不知道对不队", "no": "AIC-2026-91512263", "early_rank": 293, "early_score": 51.607, "fs_rank": 134, "fs_score": 57.321, "score_jump": 5.714, "jump_ts": "10/05 06:00", "jump_size": 5.499, "nat_rank": null, "nat_score": null}, {"name": "Bug退散", "no": "AIC-2026-33314694", "early_rank": 300, "early_score": 52.408, "fs_rank": 131, "fs_score": 57.331, "score_jump": 4.923, "jump_ts": "10/05 19:00", "jump_size": 3.146, "nat_rank": 153, "nat_score": 54.947}, {"name": "恒视科创队", "no": "AIC-2026-19244943", "early_rank": 147, "early_score": 52.767, "fs_rank": 132, "fs_score": 57.321, "score_jump": 4.554, "jump_ts": "10/03 22:00", "jump_size": 2.798, "nat_rank": null, "nat_score": null}, {"name": "火爆奶龙队", "no": "AIC-2026-85813535", "early_rank": 163, "early_score": 53.047, "fs_rank": 118, "fs_score": 57.396, "score_jump": 4.349, "jump_ts": "10/05 00:00", "jump_size": 3.605, "nat_rank": null, "nat_score": null}];
+var tb3 = document.querySelector('#tbl3 tbody');
+var h3 = '';
+for(var i=0;i<INSIGHT.length;i++){var x=INSIGHT[i];
+  h3+='<tr><td>'+x.name+'</td><td>'+x.no+'</td><td>#'+x.early_rank+'</td><td>'+x.early_score+'</td><td>#'+x.fs_rank+'</td><td>'+x.fs_score+'</td><td style="color:#ffb86b">+'+x.score_jump+'</td><td>'+x.jump_ts+'</td><td>+'+x.jump_size+'</td><td>'+(x.nat_rank?'#'+x.nat_rank:'未上榜')+'</td><td>'+(x.nat_score||'-')+'</td></tr>';
+}
+tb3.innerHTML = h3;
+
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0f1420;color:#e6e9f0;font-family:"Microsoft YaHei",-apple-system,sans-serif;padding:24px;max-width:1500px;margin:0 auto}
@@ -64,6 +74,11 @@ tr.l2 td{color:#ffb86b}
 
 <div class="card"><h2>L2 中度怀疑队伍（64 队）</h2><div class="desc">单维度强信号，建议关注。</div>
 <table id="tbl2"><thead><tr><th>名次</th><th>分数</th><th>队名</th><th>编号</th><th>提交次数</th><th>复赛名次</th><th>最大跳分</th><th>触发原因</th></tr></thead><tbody></tbody></table>
+</div>
+
+
+<div class="card"><h2>复赛顿悟队（后期爆发踩线晋级国赛）</h2><div class="desc">复赛前 60% 时间排名 120 名开外，最后几天突然涨分 4+ 分，刚好踩进国赛晋级线（省二边缘）。这类队伍在国赛往往已经没后劲了。</div>
+<table id="tbl3"><thead><tr><th>队名</th><th>编号</th><th>复赛早期最佳排名</th><th>早期分数</th><th>复赛最终排名</th><th>复赛最终分</th><th>涨分</th><th>爆发时间</th><th>单次跳分</th><th>国赛当前排名</th><th>国赛分数</th></tr></thead><tbody></tbody></table>
 </div>
 
 <div class="note">⚠️ 本页面所有"L1/L2/L3"仅为统计异常信号强度，不构成作弊认定。实际作弊认定需组委会核查代码、提交时间戳、训练日志等。</div>
@@ -148,6 +163,16 @@ function fillTable(id, list){
 }
 fillTable('#tbl1', D.l1);
 fillTable('#tbl2', D.l2);
+
+// tbl3 顿悟队
+var INSIGHT = [{"name": "焦糖味银鹭花生牛奶", "no": "AIC-2026-97390338", "early_rank": 409, "early_score": 45.281, "fs_rank": 124, "fs_score": 57.38, "score_jump": 12.099, "jump_ts": "09/26 08:00", "jump_size": 43.648, "nat_rank": 117, "nat_score": 55.661}, {"name": "对的对的", "no": "AIC-2026-50650446", "early_rank": 305, "early_score": 50.657, "fs_rank": 119, "fs_score": 57.396, "score_jump": 6.739, "jump_ts": "10/04 23:00", "jump_size": 6.739, "nat_rank": null, "nat_score": null}, {"name": "Sandwich", "no": "AIC-2026-66889524", "early_rank": 128, "early_score": 51.772, "fs_rank": 81, "fs_score": 57.968, "score_jump": 6.196, "jump_ts": "10/04 00:00", "jump_size": 5.731, "nat_rank": 207, "nat_score": 51.65}, {"name": "旺旺队", "no": "AIC-2026-50878539", "early_rank": 228, "early_score": 51.422, "fs_rank": 116, "fs_score": 57.402, "score_jump": 5.98, "jump_ts": "10/05 15:00", "jump_size": 5.98, "nat_rank": 176, "nat_score": 54.27}, {"name": "刀枪炮", "no": "AIC-2026-76610325", "early_rank": 323, "early_score": 51.588, "fs_rank": 133, "fs_score": 57.321, "score_jump": 5.733, "jump_ts": "10/05 10:00", "jump_size": 5.647, "nat_rank": null, "nat_score": null}, {"name": "不知道对不队", "no": "AIC-2026-91512263", "early_rank": 293, "early_score": 51.607, "fs_rank": 134, "fs_score": 57.321, "score_jump": 5.714, "jump_ts": "10/05 06:00", "jump_size": 5.499, "nat_rank": null, "nat_score": null}, {"name": "Bug退散", "no": "AIC-2026-33314694", "early_rank": 300, "early_score": 52.408, "fs_rank": 131, "fs_score": 57.331, "score_jump": 4.923, "jump_ts": "10/05 19:00", "jump_size": 3.146, "nat_rank": 153, "nat_score": 54.947}, {"name": "恒视科创队", "no": "AIC-2026-19244943", "early_rank": 147, "early_score": 52.767, "fs_rank": 132, "fs_score": 57.321, "score_jump": 4.554, "jump_ts": "10/03 22:00", "jump_size": 2.798, "nat_rank": null, "nat_score": null}, {"name": "火爆奶龙队", "no": "AIC-2026-85813535", "early_rank": 163, "early_score": 53.047, "fs_rank": 118, "fs_score": 57.396, "score_jump": 4.349, "jump_ts": "10/05 00:00", "jump_size": 3.605, "nat_rank": null, "nat_score": null}];
+var tb3 = document.querySelector('#tbl3 tbody');
+var h3 = '';
+for(var i=0;i<INSIGHT.length;i++){var x=INSIGHT[i];
+  h3+='<tr><td>'+x.name+'</td><td>'+x.no+'</td><td>#'+x.early_rank+'</td><td>'+x.early_score+'</td><td>#'+x.fs_rank+'</td><td>'+x.fs_score+'</td><td style="color:#ffb86b">+'+x.score_jump+'</td><td>'+x.jump_ts+'</td><td>+'+x.jump_size+'</td><td>'+(x.nat_rank?'#'+x.nat_rank:'未上榜')+'</td><td>'+(x.nat_score||'-')+'</td></tr>';
+}
+tb3.innerHTML = h3;
+
 </script>
 </body>
 </html>
