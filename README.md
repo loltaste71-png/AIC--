@@ -9,9 +9,9 @@
 | 报告 | 内容 |
 |---|---|
 | [**analysis/st2_national.html**](analysis/st2_national.html) | **赛题二国赛可视化**：220队在榜增长、分数分布、国一/二/三线演化、名次-分数曲线、跳分Top20、L1高度怀疑35队+L2中度怀疑64队、复赛顿悟队9支 |
-| [analysis/st2_national_异常分析报告.md](analysis/st2_national_异常分析报告.md) | 国赛整体分布+检测方法+关键发现 |
-| [analysis/st2_national_怀疑名单.md](analysis/st2_national_怀疑名单.md) | L1/L2/L3三级完整名单+判定逻辑 |
-| `data/rank_snapshots_bjs_st2.json` | 国赛榜单整点快照（133 帧，2026-10-26 00:00 → 2026-10-31 12:00） |
+| [analysis/st2_national_异常分析报告.md](https://github.com/loltaste71-png/AIC--/blob/main/analysis/st2_national_异常分析报告.md) | 国赛整体分布+检测方法+关键发现 |
+| [analysis/st2_national_怀疑名单.md](https://github.com/loltaste71-png/AIC--/blob/main/analysis/st2_national_怀疑名单.md) | L1/L2/L3三级完整名单+判定逻辑 |
+| [data/rank_snapshots_bjs_st2.json](https://github.com/loltaste71-png/AIC--/blob/main/data/rank_snapshots_bjs_st2.json) | 国赛榜单整点快照（133 帧，2026-10-26 → 2026-10-31） |
 
 ### 国赛数据口径
 
