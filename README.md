@@ -36,6 +36,7 @@
 |---|---|
 | [analysis/index.html](analysis/index.html) | 基础分析：队伍总数、分数分布、单帧暴涨、获奖线演化、迭代活跃度、排名波动 |
 | [analysis/cheat_analysis.html](analysis/cheat_analysis.html) | 可疑队伍画像：暴涨 Top30、同分簇、综合可疑度、初赛↔复赛反差 |
+| [analysis/fs_suspects.html](analysis/fs_suspects.html) | **可疑队伍全记录**：L1 19队 + L2 63队 + L3 185队，共267队完整轨迹可点击查看 |
 | [analysis/drop_analysis.html](analysis/drop_analysis.html) | 分数倒跌：14 起倒跌事件全明细 |
 | [analysis/lowerbound.html](analysis/lowerbound.html) | 作弊下界估计：分层下界（35/46/51/71 队） |
 | [analysis/prize_verdict.html](analysis/prize_verdict.html) | 公示交叉分析：被斩杀20队画像、漏网预测 |
